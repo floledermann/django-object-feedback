@@ -3,12 +3,12 @@
 from setuptools import setup, find_packages 
  
 setup(
-    name='django-content-feedback',
+    name='django-object-feedback',
     version='0.1',
     description='A simple Django app providing feedback form to send feedback for any object in the database.',
     author='Flo Ledermann',
     author_email='ledermann@ims.tuwien.ac.at',
-    url='http://bitbucket.org/floledermann/django-content-feedback/',
+    url='http://bitbucket.org/floledermann/django-object-feedback/',
     packages=find_packages(),
     include_package_data=True,
     classifiers=[
