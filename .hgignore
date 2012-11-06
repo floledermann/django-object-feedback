@@ -1,1 +1,2 @@
 glob:**.pyc
+glob:django_object_feedback.egg-info
