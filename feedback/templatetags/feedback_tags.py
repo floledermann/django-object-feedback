@@ -11,8 +11,7 @@ class FeedbackSubjectsNode(template.Node):
          self.var_name = var_name
 
     def render(self, context):
-        context[self.var_name] = Page.objects\
-                                        .filter(Q(feedback_subject=True) | Q(parent__children_feedback_subject=True)).distinct()
+        context[self.var_name] = Page.on_site.filter(Q(feedback_subject=True) | Q(parent__children_feedback_subject=True)).distinct()
         return ''
 
 
