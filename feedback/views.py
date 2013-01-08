@@ -23,7 +23,10 @@ def send_feedback(request):
     except Exception, ex:
         subject = _('General Inquiry')
 
-    body = '\n'.join(['%s: %s' % (a, request.REQUEST.get(a, '')) for a in ['name','email','phone','date','date_fix','text']])
+    keys = request.POST.keys()
+    keys.remove('feedback_subject')
+    keys.sort()
+    body = '\n'.join(['%s: %s' % (a.lstrip('0123456789_-'), request.REQUEST.get(a, '')) for a in keys])
 
     send_mail(string_concat(Site.objects.get_current().name,' ',_('Inquiry: '), subject), body, from_email, [a[1] for a in settings.RECIPIENTS])
     next = request.REQUEST.get('next', settings.NEXT_URL)
